@@ -15,3 +15,9 @@
     transform: rotate(360deg);
   }
 }
+
+.page-content {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 75vh;
+}

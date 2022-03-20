@@ -1,2 +1,2 @@
-export * from './Header'
-// 导出 Header.tsx 
+export { Header } from './Header'
+// 导出 Header.tsx

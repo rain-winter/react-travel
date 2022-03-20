@@ -263,7 +263,7 @@ ReactDOM.render(
 ~~~tsx
 import React, { useContext } from 'react';
 const value = useContext(appContext) // 使用useContext() 取值
-// <p>作者：{value.username}</p>
+<p>作者：{value.username}</p>
 ~~~
 
 子组件Robot.tsx（类组件）
