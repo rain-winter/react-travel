@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './App.module.css'
 
-import { Header, Footer, SideMenu, Carousel } from './components'
+import { Header, Footer, SideMenu, Carousel, BusinessPartners } from './components'
 import { Row, Col, Typography } from 'antd'
 import { ProductCollection } from './components'
 // 引入首页推荐数据
@@ -14,7 +14,7 @@ function App() {
     <div className={styles.App}>
       <Header />
       {/* 页面content */}
-      <div className={styles['page-content']}>
+      <div className={styles["page-content"]}>
         <Row style={{ marginTop: 20 }}>
           {/* 左侧多重菜单和走马灯 */}
           <Col span={6}>
@@ -28,7 +28,6 @@ function App() {
             </div>
           </Col>
         </Row>
-        {/*  */}
         {/* title传递了antd个性化title */}
         {/* 传入数据 */}
         {/* 传入图片 */}
@@ -38,15 +37,16 @@ function App() {
           products={productList1}
         />
         <ProductCollection
-          title={<Typography.Title level={3} type="warning">新品上市</Typography.Title>}
+          title={<Typography.Title level={3} type="danger">新品上市</Typography.Title>}
           sideImage={sideImage2}
           products={productList2}
         />
         <ProductCollection
-          title={<Typography.Title level={3} type="warning">国内游推荐</Typography.Title>}
+          title={<Typography.Title level={3} type="success">国内游推荐</Typography.Title>}
           sideImage={sideImage3}
           products={productList3}
         />
+        <BusinessPartners />
       </div>
       <Footer />
     </div>

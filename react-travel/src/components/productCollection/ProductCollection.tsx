@@ -1,6 +1,7 @@
+
 import React from "react";
 import styles from './ProductCollection.module.css'
-import { Row, Col, Typography, Divider } from 'antd'
+import { Row, Col, Divider } from 'antd'
 
 import { ProductImage } from './ProductImage'
 // 定义泛型
@@ -15,7 +16,7 @@ interface PropsType {
  * @returns 
  */
 export const ProductCollection: React.FC<PropsType> = ({ title, sideImage, products }) => {
-  return <div className="styles.content">
+  return <div className={styles.content}>
     <Divider orientation="left">{title}</Divider>
     <Row>
       <Col span={4}>
@@ -26,7 +27,7 @@ export const ProductCollection: React.FC<PropsType> = ({ title, sideImage, produ
           <Col span={12}>
             <ProductImage
               id={products[0].id}
-              size={'large'}
+              size='large'
               title={products[0].title}
               imageSrc={products[0].touristRoutePictures[0].url}
               price={products[0].price}

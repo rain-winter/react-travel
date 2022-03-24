@@ -4,4 +4,5 @@ export * from './header'
 
 export * from './sideMenu' // 则边栏
 export * from './carousel' // 走马灯
-export * from './productCollection' // 
+export * from './productCollection' //
+export * from './businessPartners' // 合作伙伴

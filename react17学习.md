@@ -353,3 +353,97 @@ npm install typescript-plugin-css-modules -D
 npm install antd @ant-design/icons
 ~~~
 
+## 主页（热门产品开发）
+
+~~~tsx
+{/* App.tsx */}
+// 引入三张主图以及对应的mock数据
+function App () {
+    return (
+        <div className={styles['page-content']}>
+            <ProductCollection
+                title={<Typography.Title level={3} type="warning">新品上市</Typography.Title>
+                sideImage={sideImage3}
+        		products={productList3}
+            />
+        </div>
+    )
+}
+~~~
+
+~~~tsx
+{/* ProductCollection 组件 */}
+interface PropsType { // 定义泛型
+  title: JSX.Element
+  sideImage: any
+  products: any[]
+}
+export const ProductCollection: React.FC<PropsType> = ({ title, sideImage, products }) => {
+  return <div className="styles.content">
+    <Divider orientation="left">{title}</Divider> 分割线
+    <Row>
+      <Col span={4}>
+        <img src={sideImage} alt='' />
+      </Col>
+      <Col span={20}>
+        <Row>
+          <Col span={12}>
+            <ProductImage
+              id={products[0].id}
+              size={'large'}
+              title={products[0].title}
+              imageSrc={products[0].touristRoutePictures[0].url}
+              price={products[0].price}
+            />
+          </Col>
+          <Col span={12}>
+            <Row>
+              <Col span={12}></Col>
+              <Col span={12}></Col>
+            </Row>
+            <Row>
+              <Col span={12}></Col>
+              <Col span={12}></Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          6个<Col />
+        </Row>
+      </Col>
+    </Row>
+  </div>
+}
+~~~
+
+~~~tsx
+// 展示图片的组件
+import React from "react";
+import { Image, Typography } from 'antd'
+
+interface PropsType {
+  id: string | number
+  size: 'large' | 'small'
+  imageSrc: string
+  price: number | string
+  title: string
+}
+export const ProductImage: React.FC<PropsType> = ({ id, size, imageSrc, price, title }) => {
+  return (
+    <>
+      {size === 'large' ? (
+        <Image src={imageSrc} height={285} width={490} />
+      ) : (
+        <Image src={imageSrc} height={120} width={240} />
+      )}
+      <div>
+        <Typography.Text type="secondary">
+          {title.slice(0, 25)}
+        </Typography.Text>
+        <Typography.Text type="danger" strong>
+          ￥{price}起
+        </Typography.Text>
+      </div>
+    </>
+  )
+}
