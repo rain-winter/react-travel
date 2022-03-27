@@ -1,6 +1,6 @@
 # 命令
 * `npx create-react-app my-app`
-* `npx create-react-app my-app --template typescript` 
+* `npx create-react-app react-travel2 --template typescript` 
 * `npm start`
 # jsx
 React认为视图的本质就是渲染逻辑与UI视图表现的内在统一，React把HTML与渲染逻辑进行了耦合，形成了JSX。
@@ -37,9 +37,12 @@ const element = { // 最后输出的对象
 新建`custom.d.ts` 这种文件可以被ts直接识别。不被编译不备打包
 
 ~~~ts
-// 声明 CSS 文件。讲过声明后才可以被TS识别
+// 声明 CSS 文件。讲过声明后才可以被TS识别成对象,通过访问对象的形式使用css
+// import styles from './a.css'
 declare module "*.css" {
-    const css: { [key: string]: string }
+    const css: { 
+        [key: string]: string 
+    }
     export default css
 }
 ~~~
@@ -447,3 +450,35 @@ export const ProductImage: React.FC<PropsType> = ({ id, size, imageSrc, price, t
     </>
   )
 }
+~~~
+
+## 路由
+
+SPA（单页网站应用）
+
+* JS、CSS、HTML打包为一个超级大的文件，一次性丢给浏览器
+* JS劫持浏览器路由，生成虚拟路由来动态渲染页面dom元素
+* 符合前后端分离的趋势，服务器不负责UI输出，而专注于数据的支持
+* 同时支持桌面app、手机App、网站App
+
+React网站使用的路由都是虚拟的，不会显示项目目录
+
+* 主页：http://localhost:3000
+* 搜索页面：http://localhost:3000/search
+
+### react-router
+
+http://react-router.com 选择web
+
+* react-router-dom用于浏览器，处理Web App
+* react-router-natice 用于React Native，处理手机app路由
+* react-router-redux 提供了路由中间件，处理redux的集成
+* react-router-config 用来静态配置路由
+
+| react-router-dom（会自动安装react-router核心框架） |                                              |
+| -------------------------------------------------- | -------------------------------------------- |
+| \<Link />                                          | 渲染出<a />                                  |
+| \<BrowserRouter />                                 | 利用H5 API 实现路由切换                      |
+| \<HashRouter />                                    | 利用原生JS的window.location.push实现路由切换 |
+
+6-3

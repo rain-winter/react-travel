@@ -1,5 +1,0 @@
-.side-menu {
-  width: 256px;
-  /* 加上import，不然右边框出不来 */
-  border: 5px solid #1976d2 !important;
-}
