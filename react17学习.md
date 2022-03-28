@@ -477,8 +477,7 @@ http://react-router.com 选择web
 
 | react-router-dom（会自动安装react-router核心框架） |                                              |
 | -------------------------------------------------- | -------------------------------------------- |
-| \<Link />                                          | 渲染出<a />                                  |
+| \<Link />                                          | 渲染出\<a />                                 |
 | \<BrowserRouter />                                 | 利用H5 API 实现路由切换                      |
 | \<HashRouter />                                    | 利用原生JS的window.location.push实现路由切换 |
 
-6-3

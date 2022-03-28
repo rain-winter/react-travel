@@ -20,6 +20,7 @@ export const BusinessPartners: React.FC = () => {
       <Divider orientation="left">
         <Typography.Title level={3}>合作企业</Typography.Title>
       </Divider>
+      {/* 使用Row 包裹 四个列（Col）Col包裹img */}
       <Row>
         {
           companies.map((item, index) => (
