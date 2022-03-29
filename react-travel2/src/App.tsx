@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from "./App.module.css";
-import { HomePage } from './pages'
+import { HomePage, NotFoundPage } from './pages'
 
 import { Route, Routes } from 'react-router-dom'
 
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/signIn' element={<h1>signIn</h1>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
