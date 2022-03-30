@@ -24,7 +24,7 @@ export const BusinessPartners: React.FC = () => {
       <Row>
         {
           companies.map((item, index) => (
-            <Col span={6}>
+            <Col span={6} key={index}>
               <img src={item.src} alt="" className={styles.BusinessPartnersImg} />
             </Col>
           ))
