@@ -18,6 +18,7 @@ import styles from './HomePage.module.css'
 
 export class HomePage extends React.Component {
   render() {
+    console.log(this.props)
     return (
       <div className={styles.App}>
         <Header />

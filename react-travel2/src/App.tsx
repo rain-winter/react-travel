@@ -4,8 +4,8 @@ import styles from "./App.module.css";
 import { HomePage, NotFoundPage, RegisterPage } from './pages'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { SignInPage } from './pages/signIn';
-import { DetailPage } from './pages/detail';
+import { SignInPage } from './pages/signIn'
+import { DetailPage } from './pages/detail'
 
 function App() {
   return (

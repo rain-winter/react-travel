@@ -1,11 +1,21 @@
 import { Button, Dropdown, Layout, Menu, Typography, Input } from "antd";
 import React from "react";
-import { GlobalOutlined } from "@ant-design/icons";
+import { GlobalOutlined } from "@ant-design/icons"
+import { useNavigate } from 'react-router-dom'
 
 import styles from './Header.module.css'
 import logo from '../../assets/logo.svg'
 
 export const Header: React.FC = () => {
+  const nav = useNavigate()
+  // const params = useParams()
+  // const location = useLocation()
+
+  // console.log(nav)
+  // console.log(params)
+  // console.log(location)
+
+
   return (
     <div className={styles["app-header"]}>
       {/* 最顶部 */}
@@ -25,8 +35,8 @@ export const Header: React.FC = () => {
             语言
           </Dropdown.Button>
           <Button.Group className={styles["button-group"]}>
-            <Button>注册</Button>
-            <Button>登陆</Button>
+            <Button onClick={() => nav(`/register`)}>注册</Button>
+            <Button onClick={() => nav(`/signIn`)}>登陆</Button>
           </Button.Group>
         </div>
       </div>
