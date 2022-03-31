@@ -466,9 +466,9 @@ React网站使用的路由都是虚拟的，不会显示项目目录
 * 主页：http://localhost:3000
 * 搜索页面：http://localhost:3000/search
 
-### react-router
 
-http://react-router.com 选择web
+
+[Declarative routing for React apps at any scale | React Router](https://reactrouter.com/)选择web
 
 * react-router-dom用于浏览器，处理Web App
 * react-router-natice 用于React Native，处理手机app路由
@@ -481,3 +481,44 @@ http://react-router.com 选择web
 | \<BrowserRouter />                                 | 利用H5 API 实现路由切换                      |
 | \<HashRouter />                                    | 利用原生JS的window.location.push实现路由切换 |
 
+~~~tsx
+// index.tsx
+import { BrowserRouter} from 'react-router-dom'
+ReactDOM.render(
+  <BrowserRouter>
+    <App />,
+  </BrowserRouter>,
+  document.getElementById('root')
+);
+~~~
+
+~~~tsx
+// App.tsx
+import { Route, Routes } from 'react-router-dom'
+function App() {
+    return (
+       <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/detail/:touristRouteId' element={<DetailPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    )
+}
+~~~
+
+~~~js
+// 取值，跳转操作
+import { Link, useParams, useNavicate } from 'react-router-dom'
+<Link to={`/detail/${id}`}></Link>
+const { touristRouteId } = useParams()
+const nav = useNavicate() nav('url')
+~~~
+
+## redux
+
+什么时候用redux：
+
+* 组件需要共享数据的时候
+* 某个状态需要在任何地方被随时访问
+* 某个组件需要改变另一半组件的状态的时候
+* 语言切换、黑暗模式切换、用户登录全局数据共享

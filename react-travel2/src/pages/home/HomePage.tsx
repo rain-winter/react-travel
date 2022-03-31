@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Row, Typography } from 'antd';
 
-
 import { BusinessPartners, Header } from '../../components'
 import { SideMenu } from '../../components'
 import { Carousel } from '../../components'
@@ -18,7 +17,6 @@ import styles from './HomePage.module.css'
 
 export class HomePage extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <div className={styles.App}>
         <Header />
