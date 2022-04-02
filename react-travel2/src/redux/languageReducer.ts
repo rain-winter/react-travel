@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 export interface LanguageState {
   language: 'en' | 'zh'
   languageList: { name: string; code: string }[]
@@ -22,6 +24,7 @@ export default (state = defaultState, action: any) => {
   // 使用 switch
   switch (action.type) {
     case 'change_language':
+      i18next.changeLanguage(action.payload)
       return { ...state, language: action.payload }
     case 'add_language':
       return {

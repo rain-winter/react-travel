@@ -526,6 +526,54 @@ const nav = useNavicate() nav('url')
 首先新建redux文件夹，新建languageReducer、store
 
 ~~~tsx
+// store.ts
+import { createStore } from 'redux'
+import languageReducer from './languageReducer'
+const store = createStore(languageReducer) // 创建store
+export default store
+~~~
+
+~~~tsx
+// languageReducer.ts
+export interface LanguageState {
+  language: 'en' | 'zh'
+  languageList: { name: string; code: string }[]
+}
+
+// 设计state
+const defaultState: LanguageState = {
+  language: 'zh',
+  languageList: [
+    {
+      name: '中文',
+      code: 'zh',
+    },
+    {
+      name: 'English',
+      code: 'en',
+    },
+  ],
+}
+
+export default (state = defaultState, action: any) => {
+  // 使用 switch
+  switch (action.type) {
+    case 'change_language':
+      return { ...state, language: action.payload }
+    case 'add_language':
+      return {
+        ...state,
+        languageList: [...state.languageList, action.payload],
+      }
+    default:
+      return state
+  }
+}
+~~~
+
+
+
+~~~tsx
 // header.class.tsx
 import { LanguageState } from '../../redux/languageReducer'
 import store from "../../redux/store";
@@ -545,16 +593,15 @@ const action = {
     type: 'your action name',
     payload:  params
 }
-store.dispatch(action)
+store.dispatch(action) // 发送到redux
 store.subscribe(() => {
     // 在这通过store.getState()获取更新后的数据，并显示到UI上
 })
 ~~~
 
-事件的订阅与推送
+## i18n
 
-~~~tsx
-// header.class.tsx
+* i18nnext：目前最主流的框架
+* react-i18next：i18next的react插件
 
-~~~
-
+https://react.i18next.com/
