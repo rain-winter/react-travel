@@ -3,12 +3,13 @@ import React from "react";
 import { Button, Dropdown, Layout, Menu, Typography, Input } from "antd";
 import { GlobalOutlined } from "@ant-design/icons"
 
-import { LanguageState } from '../../redux/languageReducer'
+import { LanguageState } from '../../redux/language/languageReducer'
 import store from "../../redux/store";
 import styles from './Header.module.css'
 import logo from '../../assets/logo.svg'
 
 import { withTranslation, WithTranslation } from 'react-i18next'
+import { addLanguageActionCreator, changeLanguageActionCreator } from '../../redux/language/LanguageAction'
 
 interface Props { }
 interface State extends LanguageState { }
@@ -35,16 +36,18 @@ class HeaderComponent extends React.Component<Props & WithTranslation, State> {
     // 设计store
     if (e.key === 'new') {
       // 处理新语言添加
-      const action = {
-        type: 'add_language',
-        payload: { code: 'new_lang', name: '新语言' }
-      }
+      // const action = {
+      //   type: 'add_language',
+      //   payload: { code: 'new_lang', name: '新语言' }
+      // }
+      let action = addLanguageActionCreator('新语言', 'new_lang')
       store.dispatch(action)
     } else {
-      const action = {
-        type: 'change_language',
-        payload: e.key
-      }
+      // const action = {
+      //   type: 'change_language',
+      //   payload: e.key
+      // }
+      let action = changeLanguageActionCreator(e.key)
       // 分发action
       store.dispatch(action)
     }
