@@ -1,0 +1,50 @@
+.app-header {
+  background-color: white !important;
+}
+.top-header {
+  height: 40px;
+  background-color: #f5f5f5;
+  padding: 0 4%;
+}
+.top-header-inner {
+  width: 88%;
+  margin: 0 auto;
+}
+
+.button-group {
+  float: right;
+  margin-top: 4px;
+}
+
+/* react 旅游网 */
+.App-logo {
+  height: 60px;
+  width: 60px;
+  float: left;
+}
+.main-header {
+  width: 88%;
+  margin: 0 auto;
+  background-color: white !important;
+  height: 60px;
+  line-height: 60px;
+}
+
+.main-header .title {
+  line-height: 60px !important;
+  color: #03a9f4 !important;
+  display: inline;
+}
+
+.search-input{
+  width: 400px !important;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.main-menu {
+  padding-left: 6% !important;
+  padding-right: 6% !important;
+  background-color: #1976D2 !important;
+  color: #f5f5f5 !important;
+}

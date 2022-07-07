@@ -352,7 +352,8 @@ export const useAddToCart = () => {
 # 项目
 
 ~~~bash
-npm install typescript-plugin-css-modules -D
+yarn add -D typescript-plugin-css-modules # css模块化
+yarn add react-i18next # 国际化
 npm install antd @ant-design/icons
 ~~~
 
@@ -601,7 +602,6 @@ store.subscribe(() => {
 
 ## i18n
 
-* i18nnext：目前最主流的框架
+* [i18next]([Introduction - react-i18next documentation](https://react.i18next.com/))：目前最主流的框架
 * react-i18next：i18next的react插件
 
-https://react.i18next.com/
