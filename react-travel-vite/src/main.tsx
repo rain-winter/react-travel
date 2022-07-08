@@ -4,12 +4,16 @@ import App from './App'
 import './index.css'
 import "antd/dist/antd.css"; // antd
 import './i18n/config.ts' // i18n配置文件
+import {store} from './redux/store' // redux 全局状态
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
       <BrowserRouter>
-          <App />
+          <Provider store={store}>
+              <App />
+          </Provider>
       </BrowserRouter>
   </React.StrictMode>
 )

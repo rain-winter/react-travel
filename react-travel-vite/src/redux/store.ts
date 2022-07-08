@@ -1,8 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {languageReducer} from './language/LanguageReducer'
+import LanguageSlice from './language/LanguageSlice'
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        languae:LanguageSlice
+    },
 })
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

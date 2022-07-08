@@ -12,8 +12,8 @@ const resources = {
     translation: translation_zh,
   },
 }
-
-i18n
+// .init 是promise
+await i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,

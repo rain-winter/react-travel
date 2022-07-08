@@ -515,93 +515,15 @@ const { touristRouteId } = useParams()
 const nav = useNavicate() nav('url')
 ~~~
 
-## redux
+## reduxjs/toolkit和i18n
 
 什么时候用redux：
 
 * 组件需要共享数据的时候
 * 某个状态需要在任何地方被随时访问
 * 某个组件需要改变另一半组件的状态的时候
-* 语言切换、黑暗模式切换、用户登录全局数据共享
+* 语言切换、黑暗模式切换、用户登录全局数据共享。[网址](https://redux-toolkit.js.org/)
 
-首先新建redux文件夹，新建languageReducer、store
-
-~~~tsx
-// store.ts
-import { createStore } from 'redux'
-import languageReducer from './languageReducer'
-const store = createStore(languageReducer) // 创建store
-export default store
-~~~
-
-~~~tsx
-// languageReducer.ts
-export interface LanguageState {
-  language: 'en' | 'zh'
-  languageList: { name: string; code: string }[]
-}
-
-// 设计state
-const defaultState: LanguageState = {
-  language: 'zh',
-  languageList: [
-    {
-      name: '中文',
-      code: 'zh',
-    },
-    {
-      name: 'English',
-      code: 'en',
-    },
-  ],
-}
-
-export default (state = defaultState, action: any) => {
-  // 使用 switch
-  switch (action.type) {
-    case 'change_language':
-      return { ...state, language: action.payload }
-    case 'add_language':
-      return {
-        ...state,
-        languageList: [...state.languageList, action.payload],
-      }
-    default:
-      return state
-  }
-}
-~~~
-
-
-
-~~~tsx
-// header.class.tsx
-import { LanguageState } from '../../redux/languageReducer'
-import store from "../../redux/store";
-class HeaderComponent extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props)
-        const storeState = store.getState() // 通过store对象的方法获取state
-        this.state={}
-    }
-}
-~~~
-
-~~~tsx
-// header.class.tsx
-//  发送action到redux
-const action = {
-    type: 'your action name',
-    payload:  params
-}
-store.dispatch(action) // 发送到redux
-store.subscribe(() => {
-    // 在这通过store.getState()获取更新后的数据，并显示到UI上
-})
-~~~
-
-## i18n
-
-* [i18next]([Introduction - react-i18next documentation](https://react.i18next.com/))：目前最主流的框架
+* [react-i18n](https://react.i18next.com/)目前最主流的框架
 * react-i18next：i18next的react插件
 
