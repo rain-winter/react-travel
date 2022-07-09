@@ -1,21 +1,25 @@
-import {Button, Dropdown, Layout, Menu, Typography, Input} from "antd";
-import type { MenuProps } from 'antd';
 import React from "react";
 import {GlobalOutlined} from "@ant-design/icons"
+import {Button, Dropdown, Layout, Menu, Typography, Input} from "antd"; // antdesign
+import type {MenuProps} from 'antd'; // 按钮事件类型
+// react-router
 import {useNavigate} from 'react-router-dom'
-import {useTranslation} from 'react-i18next'
-import {useSelector, useDispatch} from 'react-redux'
-import type {RootState} from "../../redux/store";
+import {useTranslation} from 'react-i18next' // i18n
+// 使用 redux Toolkit
+import {useDispatch, useSelector} from 'react-redux'
+import {RootState} from '../../redux/store'
 import {changeLanguage} from '../../redux/language/LanguageSlice'
-
+// 引入样式文件、logo
 import styles from './Header.module.css'
 import logo from '../../assets/logo.svg'
 
 export const Header: React.FC = () => {
+    const {language, languageList} = useSelector((state: RootState) => state.language)
     const nav = useNavigate()
     const {t} = useTranslation()
     const dispatch = useDispatch()
-    const menuClick : MenuProps['onClick'] = ({ key }) => {
+
+    const menuClick: MenuProps['onClick'] = ({key}) => {
         console.log(key)
         dispatch(changeLanguage(key))
     };

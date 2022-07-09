@@ -3,7 +3,7 @@ import LanguageSlice from './language/LanguageSlice'
 
 export const store = configureStore({
     reducer: {
-        languae:LanguageSlice
+        language:LanguageSlice,
     },
 })
 // Infer the `RootState` and `AppDispatch` types from the store itself

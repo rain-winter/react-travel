@@ -4,6 +4,9 @@
 * `npm start`
 # jsx
 React认为视图的本质就是渲染逻辑与UI视图表现的内在统一，React把HTML与渲染逻辑进行了耦合，形成了JSX。
+
+MVM
+
 ## JSX的特点
 * HTML代码可以与jsx兼容
 * 可以在jsx中镶如表达式
@@ -526,4 +529,31 @@ const nav = useNavicate() nav('url')
 
 * [react-i18n](https://react.i18next.com/)目前最主流的框架
 * react-i18next：i18next的react插件
+
+[文档地址](https://blog.csdn.net/m0_52372632/article/details/125683438)
+
+## RESTFUL
+
+特点
+
+* 无状态
+* 面向“资源”
+* 只有名词没有动词。`api/v1/touristRoutes`
+* 使用HTTP动词表示操作
+
+| 动词   | 意义     | 例子                                   |
+| ------ | -------- | -------------------------------------- |
+| GET    | 查看     | HTTP GET api/v1/touristRoutes 查看路线 |
+| POST   | 创建路线 | HTTP POST api/v1/touristRoutes         |
+| PUT    | 更新     | HTTP PUT api/v1/touristRoutes/{id}     |
+| PATCH  | 部分更新 | HTTP PATCH apilv1/touristRoutes/{id}   |
+| DELETE | 删除     | HTTP DELETE api/v1/touristRoutes/{id}  |
+
+好用吗？
+
+好用：面向对象（资源），如增删改查
+
+不好用：面向过程，如登录
+
+## redux-thunk中间件实现异步
 
