@@ -1,4 +1,9 @@
+# 目录说明
+
+* travel-vite3-yarn3 是成品
+
 # 命令
+
 * `npx create-react-app my-app`
 * `npx create-react-app react-travel2 --template typescript` 
 * `npm start`
@@ -557,3 +562,4 @@ const nav = useNavicate() nav('url')
 
 ## redux-thunk中间件实现异步
 
+9-3 12
