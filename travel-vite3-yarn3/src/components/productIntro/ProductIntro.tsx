@@ -2,7 +2,7 @@ import styles from './ProductIntro.module.css'
 import React from "react";
 import { Typography, Carousel, Image, Rate, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table';
-
+//  商品简介
 interface PropsType {
     title: string,
     shortDescription: string
@@ -17,7 +17,7 @@ interface PropsType {
 interface RowType {
     title: string
     description: string | number | JSX.Element
-    key: number
+    key: string
 }
 
 const columns: ColumnsType<RowType> = [
@@ -52,12 +52,12 @@ export const ProductIntro: React.FC<PropsType> = ({
     // 表单数据
     const tableDataSource: RowType[] = [
         {
-            key: 0,
+            key: '0',
             title: "路线名称",
             description: title,
         },
         {
-            key: 1,
+            key:'1',
             title: "价格",
             description: (
                 <>
@@ -69,7 +69,7 @@ export const ProductIntro: React.FC<PropsType> = ({
             ),
         },
         {
-            key: 2,
+            key: '2',
             title: "限时抢购折扣",
             description: discount ? (
                 <>
@@ -83,12 +83,12 @@ export const ProductIntro: React.FC<PropsType> = ({
             ),
         },
         {
-            key: 3,
+            key: '3',
             title: "领取优惠",
             description: coupons ? discount : "无优惠券可领",
         },
         {
-            key: 4,
+            key: '4',
             title: "线路评价",
             description: (
                 <>
@@ -116,8 +116,9 @@ export const ProductIntro: React.FC<PropsType> = ({
         </div>
         {/*  轮播  */}
         <Carousel autoplay slidesToShow={3}>
+            {/* 它需要一个key */}
             {
-                pictures.map(p => <Image height={150} src={p} />)
+                pictures.map((p,index) => <Image height={150} key={index} src={p} />)
             }
         </Carousel>
         <Table size='small' bordered={false} pagination={false} columns={columns} dataSource={tableDataSource}></Table>
