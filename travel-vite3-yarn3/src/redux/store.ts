@@ -1,10 +1,16 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+// 处理redux
 import LanguageSlice from './language/LanguageSlice'
+import { productDetailSlice } from './productDetail/slice'
 
+// combineReducers来自@reduxjs/toolkit，兼容性
+const rootReducer = combineReducers({
+  language: LanguageSlice,
+  productDetail: productDetailSlice.reducer,
+})
 export const store = configureStore({
-    reducer: {
-        language:LanguageSlice,
-    },
+  reducer: rootReducer,
+  devTools: true,
 })
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

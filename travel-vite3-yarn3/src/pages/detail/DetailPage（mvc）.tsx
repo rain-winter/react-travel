@@ -1,29 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Col, Row, Spin, DatePicker, Divider, Typography, Anchor } from 'antd'
+import axios from 'axios'
 
 import styles from './Detail.module.css'
 import { Footer, Header, ProductIntro, ProductComments } from '../../components'
 import { commentMockData } from './mockup' // 模拟的数据
-import { productDetailSlice, getProductDetail } from '../../redux/productDetail/slice'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../../redux/store'
 
-
+interface MatchParams {
+    touristRouteId: String
+}
+// 这里是 MVC架构的页面
 const { RangePicker } = DatePicker // 日期选择
 const { Link } = Anchor; // 锚点
 
-
-export const DetailPage: React.FC = () => {
+export const DetailPage: React.FC<MatchParams> = () => {
     const { touristRouteId } = useParams()
-    const { loading, error } = useSelector((state: RootState) => state.productDetail)
-    const product = useSelector((state: RootState) => state.productDetail.data);
+    const [loading, setLoading] = useState<boolean>(true)
+    const [product, setProduct] = useState<any>(null)
+    const [error, setError] = useState<string | null>(null)
 
-    const dispatch = useDispatch()
 
     useEffect(() => {
-        // TODO 这个报错没有解决
-        dispatch(getProductDetail(touristRouteId))
+        const fetchData = async () => {
+            try {
+                setLoading(true)
+                const { data } = await axios.get(
+                    `https://www.fastmock.site/mock/4ea3c838db55570bb2cd810bff0f92a8/api/touristRoutes/${touristRouteId}`
+                )
+                console.log(data)
+                setProduct(data)
+                setLoading(false)
+            } catch (e: any) {
+                setError(e.message)
+                setLoading(false)
+            }
+        }
+        fetchData()
     }, [])
 
     if (loading) {

@@ -10,7 +10,7 @@ function App() {
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='register' element={<RegisterPage/>}/>
                 <Route path={'/signIn'} element={<SignInPage/>}/>
-                <Route path='/detail/:touristRouteId' element={<DetailPage />} />
+                <Route path='/detail/:touristRouteId' element={<DetailPage touristRouteId={''} />} />
                 {/* 404 */}
                 <Route path='*' element={<NotFoundPage/>}/>
             </Routes>
