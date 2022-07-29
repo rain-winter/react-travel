@@ -1,4 +1,3 @@
-import create from '@ant-design/icons/lib/components/IconFont'
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
@@ -16,7 +15,8 @@ const initialState: ProductDetailState = {
 
 export const getProductDetail = createAsyncThunk(
   'productDetail/getProductDetail',
-  async (touristRouteId: string, thunkAPI) => {
+  async (touristRouteId: string | undefined, thunkAPI) => {
+    // thunkAPI.dispatch() 写法也可以
     const { data } = await axios.get(
       `https://www.fastmock.site/mock/4ea3c838db55570bb2cd810bff0f92a8/api/touristRoutes/${touristRouteId}`
     )

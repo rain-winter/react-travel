@@ -3,3 +3,4 @@ export * from './notfound' // 404
 export * from './signIn'
 export * from './register'
 export * from './detail'
+export * from './search'

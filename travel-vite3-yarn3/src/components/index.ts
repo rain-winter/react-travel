@@ -5,4 +5,6 @@ export * from './productCollection' // 爆款推荐、新品上市、国内游�
 export * from './footer' // 底部
 export * from './businessPartners' // 合作伙伴
 export * from './productIntro' // 商品简介
-export * from './productComments'  // 商品评论
+export * from './productComments' // 商品评论
+export * from './filter'
+export * from './productList'
