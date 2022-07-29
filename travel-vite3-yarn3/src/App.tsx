@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import styles from './App.module.css'
 import { HomePage, SignInPage, SearchPage, RegisterPage, DetailPage, NotFoundPage } from './pages'
 
-function App() {
+function App(props) {
   return (
     <div className={styles.App}>
       <Routes>

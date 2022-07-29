@@ -8,6 +8,9 @@ import styles from './Search.module.css'
 import { searchProduct } from '../../redux/productSearch/slice'
 import { RootState } from '../../redux/store'
 
+// 布局
+import { MainLayout } from '../../layouts/mainLayout'
+
 // interface MatchParams {
 //   keyword: string
 // }
@@ -57,8 +60,7 @@ export const SearchPage: React.FC = () => {
 
   return (
     <>
-      <Header />
-      <div className={styles['page-content']}>
+      <MainLayout>
         {/* 分页过滤器 */}
         <div className={styles['product-list-container']}>
           <FilterArea />
@@ -67,8 +69,7 @@ export const SearchPage: React.FC = () => {
         <div className={styles['product-list-container']}>
           <ProductList data={productList} paging={pagination} onPageChange={onPageChange} />
         </div>
-      </div>
-      <Footer />
+      </MainLayout>
     </>
   )
 }
