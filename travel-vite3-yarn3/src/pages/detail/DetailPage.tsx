@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Col, Row, Spin, DatePicker, Divider, Typography, Anchor } from 'antd'
 
 import styles from './Detail.module.css'
-import { Footer, Header, ProductIntro, ProductComments } from '../../components'
+import { ProductIntro, ProductComments } from '../../components'
 import { commentMockData } from './mockup' // 模拟的数据
 import { productDetailSlice, getProductDetail } from '../../redux/productDetail/slice'
 import { useSelector, useDispatch } from 'react-redux'
