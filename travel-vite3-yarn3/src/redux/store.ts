@@ -3,12 +3,14 @@ import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/
 import LanguageSlice from './language/LanguageSlice'
 import { productDetailSlice } from './productDetail/slice'
 import { productSearchSlice } from './productSearch/slice'
+import { userSlice } from './user/slice'
 
 // combineReducers来自@reduxjs/toolkit，兼容性
 const rootReducer = combineReducers({
   language: LanguageSlice,
   productDetail: productDetailSlice.reducer,
   productSearch: productSearchSlice.reducer,
+  user: userSlice.reducer,
 })
 
 export const store = configureStore({
