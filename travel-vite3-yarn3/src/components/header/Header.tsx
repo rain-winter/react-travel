@@ -13,6 +13,11 @@ import { changeLanguage } from '../../redux/language/LanguageSlice'
 import styles from './Header.module.css'
 import logo from '../../assets/react.svg'
 
+import jwt_decode, { JwtPayload as DefaultJwtPayload } from 'jwt-decode'
+interface JwtPayload extends DefaultJwtPayload {
+  username: string
+}
+
 export const Header: React.FC = () => {
   const { language, languageList } = useSelector((state: RootState) => state.language)
   const navigate = useNavigate()
